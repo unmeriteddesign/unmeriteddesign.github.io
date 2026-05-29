@@ -6,50 +6,73 @@
   <title>Jen Kendall</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&family=Sacramento&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="shortcut icon" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
 
   <style>
     /* ─── Tokens ─────────────────────────────────────────────── */
     :root {
-      --cream:       #FDF8F3;
-      --blush-lt:    #F5E6EA;
-      --blush:       #D4748A;
-      --blush-dk:    #B85470;
-      --sage:        #8FAF8C;
-      --sage-lt:     #D6E8D5;
-      --gold:        #C9A96E;
-      --gold-lt:     #F0E4CF;
-      --deep:        #3D2B35;
-      --mid:         #7A6070;
-      --light:       #BBA8B2;
+      --ink:     #1A1816;   /* warm near-black */
+      --paper:   #EEE8DC;   /* warm cream */
+      --ochre:   #C08A28;   /* muted golden ochre */
+      --rust:    #A84235;   /* muted terracotta */
+      --teal:    #4A8A82;   /* muted seafoam */
+      --slate:   #1F2C40;   /* deep dusty navy */
+      --forest:  #3A5840;   /* muted forest */
+      --brick:   #6E3225;   /* deep brick */
+      --plum:    #7A4A65;   /* muted plum */
+      --olive:   #5B6838;   /* muted olive */
+      --mid:     #6A6058;   /* warm gray-brown */
+      --light:   #ADA499;   /* warm light */
+      --white:   #FFFFFF;
+      /* straw for experience bg */
+      --straw:   #DBBF6A;
+      /* section bg shorthands */
+      --bg-hero:   #1F2C40;
+      --bg-exp:    #DBBF6A;
+      --bg-skills: #3A5840;
+      --bg-quirk:  #6E3225;
+      /* legacy compat */
+      --deep:      #1A1816;
+      --blush:     #A84235;
+      --blush-lt:  rgba(168,66,53,.1);
+      --blush-dk:  #872E1E;
+      --gold:      #C08A28;
+      --gold-lt:   rgba(192,138,40,.15);
+      --cream:     #EEE8DC;
+      --sage-lt:   rgba(58,88,64,.15);
     }
 
     /* ─── Reset ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
-      background: var(--cream);
-      color: var(--deep);
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 400;
       line-height: 1.7;
       overflow-x: hidden;
     }
 
     /* ─── Typography helpers ─────────────────────────────────── */
-    .serif   { font-family: 'Cormorant Garamond', serif; }
-    .script  { font-family: 'Sacramento', cursive; }
-    .eyebrow {
-      font-size: .72rem;
-      font-weight: 500;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--blush);
-    }
+    .serif   { font-family: 'Bebas Neue', 'Impact', sans-serif; }
+    .display { font-family: 'DM Serif Display', Georgia, serif; }
     a { color: inherit; text-decoration: none; }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      background: var(--ochre);
+      color: var(--ink);
+      padding: .2rem .8rem;
+      border: 1.5px solid var(--ink);
+    }
 
     /* ─── Nav ────────────────────────────────────────────────── */
     nav {
@@ -59,34 +82,28 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.1rem 2.5rem;
-      background: rgba(253, 248, 243, .88);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(212, 116, 138, .12);
-      transition: box-shadow .3s;
+      padding: 1rem 2.5rem;
+      background: var(--ink);
+      border-bottom: 2px solid transparent;
+      transition: border-color .3s;
     }
-    nav.scrolled { box-shadow: 0 2px 20px rgba(61, 43, 53, .07); }
+    nav.scrolled { border-bottom-color: var(--ochre); }
     .nav-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: .04em;
-      color: var(--deep);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: .1em;
+      color: var(--ochre);
     }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      font-size: .78rem;
-      font-weight: 400;
-      letter-spacing: .12em;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      color: var(--mid);
-      transition: color .2s;
+      color: rgba(238,232,220,.55);
+      transition: color .18s;
     }
-    .nav-links a:hover { color: var(--blush); }
+    .nav-links a:hover { color: var(--ochre); }
 
     /* ─── Hero ───────────────────────────────────────────────── */
     #hero {
@@ -99,334 +116,543 @@
       padding: 8rem 2rem 6rem;
       position: relative;
       overflow: hidden;
+      background: var(--bg-hero);
     }
-
-    /* Decorative blobs */
-    #hero::before,
+    /* Halftone dot grid in ochre — like a printed piece */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(192,138,40,.18) 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      pointer-events: none;
+    }
+    /* Warm glow circle top-right */
     #hero::after {
       content: '';
       position: absolute;
+      width: 600px; height: 600px;
+      background: var(--ochre);
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: .45;
+      opacity: .06;
+      top: -180px; right: -160px;
       pointer-events: none;
-    }
-    #hero::before {
-      width: 560px; height: 560px;
-      background: radial-gradient(circle, #F5C9D4, transparent 70%);
-      top: -100px; right: -120px;
-    }
-    #hero::after {
-      width: 420px; height: 420px;
-      background: radial-gradient(circle, #D6E8D5, transparent 70%);
-      bottom: -80px; left: -80px;
     }
 
     .hero-tag {
       display: inline-block;
-      background: var(--gold-lt);
-      color: var(--gold);
-      font-size: .7rem;
-      font-weight: 500;
-      letter-spacing: .18em;
+      background: var(--ochre);
+      color: var(--ink);
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .2em;
       text-transform: uppercase;
-      padding: .35rem 1rem;
-      border-radius: 99px;
-      margin-bottom: 1.8rem;
+      padding: .25rem 1rem;
+      border: 1.5px solid rgba(238,232,220,.2);
+      margin-bottom: 1.6rem;
+      position: relative; z-index: 1;
     }
 
+    /* Two-tone hero name: italic serif "Jen" + display "Kendall" */
     .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.8rem, 10vw, 7.5rem);
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -.01em;
-      color: var(--deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-bottom: .6rem;
+      position: relative; z-index: 1;
+      line-height: 1;
     }
-    .hero-name em {
+    .name-serif {
+      font-family: 'DM Serif Display', serif;
       font-style: italic;
-      font-weight: 300;
-      color: var(--blush);
+      font-size: clamp(3.8rem, 13vw, 8.5rem);
+      color: var(--paper);
+      display: block;
+      line-height: 1.05;
+      letter-spacing: .01em;
+    }
+    .name-display {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 18vw, 12rem);
+      color: var(--ochre);
+      display: block;
+      line-height: .9;
+      letter-spacing: .05em;
     }
 
-    .hero-script {
-      font-family: 'Sacramento', cursive;
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-      color: var(--blush);
-      margin-bottom: 2.2rem;
+    .hero-subtitle {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+      color: rgba(238,232,220,.55);
+      margin-bottom: 2rem;
+      letter-spacing: .02em;
+      position: relative; z-index: 1;
     }
 
     .hero-tagline {
-      max-width: 560px;
-      font-size: 1.02rem;
-      color: var(--mid);
-      line-height: 1.8;
+      max-width: 520px;
+      font-size: .97rem;
+      color: rgba(238,232,220,.6);
+      line-height: 1.85;
       margin-bottom: 3rem;
+      position: relative; z-index: 1;
     }
-
     .hero-cta {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
+      position: relative; z-index: 1;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      padding: .82rem 2rem;
-      border-radius: 99px;
-      font-size: .82rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      transition: transform .2s, box-shadow .2s, background .2s;
+      padding: .82rem 2.1rem;
+      border-radius: 2px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: transform .14s, box-shadow .14s;
       cursor: pointer;
     }
-    .btn:hover { transform: translateY(-2px); }
     .btn-primary {
-      background: var(--blush);
-      color: white;
-      box-shadow: 0 4px 20px rgba(212, 116, 138, .35);
+      background: var(--ochre);
+      color: var(--ink);
+      border: 2px solid var(--ochre);
+      box-shadow: 4px 4px 0 rgba(192,138,40,.35);
     }
-    .btn-primary:hover { background: var(--blush-dk); box-shadow: 0 6px 28px rgba(212,116,138,.45); }
+    .btn-primary:hover {
+      transform: translate(-2px,-2px);
+      box-shadow: 6px 6px 0 rgba(192,138,40,.35);
+    }
     .btn-ghost {
-      border: 1.5px solid var(--blush);
-      color: var(--blush);
+      background: transparent;
+      color: var(--paper);
+      border: 2px solid rgba(238,232,220,.4);
+      box-shadow: 4px 4px 0 rgba(238,232,220,.1);
     }
-    .btn-ghost:hover { background: var(--blush-lt); }
+    .btn-ghost:hover {
+      background: rgba(238,232,220,.07);
+      border-color: var(--paper);
+      transform: translate(-2px,-2px);
+      box-shadow: 6px 6px 0 rgba(238,232,220,.1);
+    }
 
     /* ─── Section shared ─────────────────────────────────────── */
     section { padding: 6rem 2rem; }
     .container { max-width: 1040px; margin: 0 auto; }
     .section-header { margin-bottom: 3.5rem; }
     .section-header h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 300;
-      line-height: 1.15;
-      margin-top: .5rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: .95;
+      letter-spacing: .04em;
+      margin-top: .6rem;
+    }
+    .section-header h2 em {
+      font-style: normal;
+      font-family: 'DM Serif Display', serif;
+      font-size: .75em;
+      vertical-align: baseline;
+      line-height: 1;
     }
     .divider {
-      width: 48px; height: 2px;
-      background: var(--blush);
-      margin: 1.2rem 0;
-      border-radius: 2px;
+      width: 56px; height: 4px;
+      margin: 1rem 0;
+      background: var(--ochre);
     }
 
     /* ─── About ──────────────────────────────────────────────── */
-    #about { background: var(--cream); }
+    #about {
+      background: var(--paper);
+      position: relative;
+    }
+    #about::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(26,24,22,.05) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none;
+    }
+    #about .container { position: relative; z-index: 1; }
+
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
     }
-    .about-text p {
-      color: var(--mid);
-      margin-bottom: 1.2rem;
-      font-size: .97rem;
+    .about-text p { color: var(--mid); margin-bottom: 1.2rem; font-size: .97rem; }
+    .about-text p strong { color: var(--ink); font-weight: 700; }
+    .about-text h2 {
+      font-family: 'DM Serif Display', serif !important;
+      font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+      font-weight: 400 !important;
+      line-height: 1.2 !important;
+      color: var(--ink);
+      margin: .6rem 0 .9rem !important;
     }
-    .about-text p strong {
-      color: var(--deep);
-      font-weight: 500;
-    }
-    /* ─── Photo ──────────────────────────────────────────────── */
-    .about-right {
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-    }
-    .jen-photo-wrap {
-      display: flex;
-      justify-content: center;
-    }
+    .about-text h2 em { font-style: italic; color: var(--rust); }
+
+    .about-right { display: flex; flex-direction: column; gap: 1.6rem; }
+    .jen-photo-wrap { display: flex; justify-content: center; }
     .jen-photo {
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
+      width: 210px; height: 210px;
+      border-radius: 0;
       object-fit: cover;
       object-position: center 15%;
-      border: 4px solid white;
-      box-shadow: 0 6px 28px rgba(212,116,138,.22);
-      outline: 3px solid rgba(212,116,138,.28);
-      outline-offset: 5px;
+      border: 3px solid var(--ink);
+      box-shadow: 7px 7px 0 var(--ochre);
+      transform: rotate(-1.5deg);
+      outline: none;
     }
 
-    /* ─── Personality type badges ────────────────────────────── */
-    .type-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .55rem;
-      margin-top: 1.2rem;
-    }
+    .type-badges { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.2rem; }
     .type-badge {
       display: inline-flex;
       align-items: center;
-      gap: .45rem;
-      background: var(--gold-lt);
-      border: 1px solid rgba(201,169,110,.4);
-      border-radius: 10px;
-      padding: .5rem 1rem;
+      gap: .4rem;
+      background: var(--straw);
+      border: 1.5px solid var(--ink);
+      box-shadow: 2px 2px 0 var(--ink);
+      border-radius: 0;
+      padding: .35rem .8rem;
     }
+    .type-badge:nth-child(2) { transform: rotate(-.6deg); }
+    .type-badge:nth-child(3) { transform: rotate(.8deg); }
     .type-badge .t-label {
-      font-size: .65rem;
-      font-weight: 500;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold);
+      font-size: .58rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--mid);
     }
     .type-badge .t-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--deep);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: .95rem; letter-spacing: .05em; color: var(--ink);
     }
 
-    .stat-cluster {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
+    .stat-cluster { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
     .stat-card {
-      background: white;
-      border-radius: 16px;
-      padding: 1.6rem 1.4rem;
-      box-shadow: 0 2px 16px rgba(61, 43, 53, .06);
-      border: 1px solid rgba(212, 116, 138, .1);
-      transition: transform .2s, box-shadow .2s;
+      background: var(--white);
+      border: 2px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      border-radius: 0;
+      padding: 1.4rem 1.2rem;
+      transition: transform .13s, box-shadow .13s;
     }
-    .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(61,43,53,.1); }
+    .stat-card:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
     .stat-card .num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
-      font-weight: 600;
-      color: var(--blush);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.2rem !important;
+      color: var(--rust);
       line-height: 1;
       margin-bottom: .3rem;
+      padding-top: 0 !important;
     }
-    .stat-card .desc {
-      font-size: .78rem;
-      color: var(--mid);
-      line-height: 1.4;
+    .stat-card .desc { font-size: .78rem; color: var(--mid); line-height: 1.4; }
+
+    /* ─── Experience ─────────────────────────────────────────── */
+    #experience {
+      background: var(--bg-exp);
+      position: relative;
     }
-
-    /* ─── Chapters / Experience ──────────────────────────────── */
-    #experience { background: var(--blush-lt); }
-
-    .chapters {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+    #experience::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(26,24,22,.1) 1.5px, transparent 1.5px);
+      background-size: 14px 14px;
+      pointer-events: none;
     }
+    #experience .container { position: relative; z-index: 1; }
+    #experience .section-header h2 { color: var(--ink); }
+    #experience .section-header h2 em { color: var(--rust); }
+    #experience .eyebrow { background: var(--ink); color: var(--straw); border-color: var(--ink); }
+    #experience .divider { background: var(--ink); }
 
+    .chapters { display: flex; flex-direction: column; gap: 2rem; }
     .chapter {
-      background: white;
-      border-radius: 20px;
+      background: var(--white);
+      border: 2px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      border-radius: 0;
       padding: 2.4rem 2.6rem;
-      box-shadow: 0 2px 20px rgba(61,43,53,.06);
-      border: 1px solid rgba(212,116,138,.08);
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 2rem;
       align-items: start;
-      transition: transform .2s, box-shadow .2s;
+      transition: transform .13s, box-shadow .13s;
     }
-    .chapter:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(61,43,53,.1); }
-
+    .chapter:nth-child(odd)  { transform: rotate(-.2deg); }
+    .chapter:nth-child(even) { transform: rotate(.18deg); }
+    .chapter:hover {
+      transform: translate(-3px,-3px) rotate(0deg) !important;
+      box-shadow: 9px 9px 0 var(--ink);
+    }
     .chapter-num {
-      font-family: 'Sacramento', cursive;
-      font-size: 3.4rem;
-      color: var(--blush);
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 3.5rem;
+      color: var(--rust);
       line-height: 1;
-      opacity: .35;
       min-width: 56px;
     }
     .chapter-era {
-      font-size: .7rem;
-      font-weight: 500;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--blush);
-      margin-bottom: .3rem;
+      font-size: .66rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--ochre);
+      margin-bottom: .4rem;
     }
     .chapter h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--deep);
-      margin-bottom: .6rem;
-      line-height: 1.2;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.1rem; letter-spacing: .05em;
+      color: var(--ink); margin-bottom: .6rem; line-height: 1;
     }
-    .chapter p {
-      font-size: .93rem;
-      color: var(--mid);
-      line-height: 1.75;
-    }
-    .chapter-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      margin-top: 1rem;
-    }
+    .chapter p { font-size: .93rem; color: var(--mid); line-height: 1.75; }
+    .chapter p em { font-style: italic; color: var(--ink); }
+    .chapter-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
     .tag {
-      background: var(--blush-lt);
-      color: var(--blush-dk);
-      font-size: .7rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: .28rem .85rem;
-      border-radius: 99px;
+      background: var(--straw);
+      color: var(--ink);
+      font-size: .64rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .22rem .7rem;
+      border: 1.5px solid var(--ink);
+      border-radius: 0;
     }
-    .tag.sage { background: var(--sage-lt); color: #4A7A47; }
-    .tag.gold { background: var(--gold-lt); color: #8A6A30; }
+    .tag.sage { background: var(--teal); color: var(--white); border-color: transparent; }
+    .tag.gold { background: var(--rust); color: var(--white); border-color: transparent; }
 
-    /* (coming-soon styles reserved for future use) */
+    /* ─── Portfolio ──────────────────────────────────────────── */
+    #portfolio {
+      background: var(--ink);
+      position: relative;
+    }
+    #portfolio::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(192,138,40,.1) 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      pointer-events: none;
+    }
+    #portfolio .container { position: relative; z-index: 1; }
+    #portfolio .section-header h2 { color: var(--paper); }
+    #portfolio .section-header h2 em { color: var(--teal); font-family: 'DM Serif Display', serif; }
+    #portfolio .eyebrow { background: var(--teal); color: var(--ink); border-color: var(--teal); }
+    #portfolio .divider { background: var(--teal); }
+    #portfolio .section-header p { color: rgba(238,232,220,.5); }
 
-    /* ─── Skills / Superpowers ───────────────────────────────── */
-    #skills { background: var(--cream); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.8rem;
+    }
+    .port-card {
+      background: var(--white);
+      border: 2px solid var(--card-accent, var(--ochre));
+      box-shadow: 5px 5px 0 var(--card-accent, var(--ochre));
+      border-radius: 0;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform .13s, box-shadow .13s;
+    }
+    /* Muted palette — each card gets a distinct earthy accent */
+    .port-card:nth-child(1) { --card-accent: #C08A28; }  /* ochre */
+    .port-card:nth-child(2) { --card-accent: #A84235; }  /* rust */
+    .port-card:nth-child(3) { --card-accent: #4A8A82; }  /* teal */
+    .port-card:nth-child(4) { --card-accent: #2E4468; }  /* slate */
+    .port-card:nth-child(5) { --card-accent: #5B6838; }  /* olive */
+    .port-card:nth-child(6) { --card-accent: #7A4A65; }  /* plum */
+    .port-card:nth-child(7) { --card-accent: #C08A28; }  /* ochre */
+    .port-card:nth-child(8) { --card-accent: #4A8A82; }  /* teal */
+    .port-card:hover {
+      transform: translate(-3px,-3px);
+      box-shadow: 8px 8px 0 var(--card-accent, var(--ochre));
+    }
+
+    .port-thumb {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: #1e1c1a;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .port-thumb-img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .35s;
+    }
+    .port-card:hover .port-thumb-img { transform: scale(1.04); }
+    .port-thumb-canvas { display: block; max-width: 100%; max-height: 100%; }
+    .port-thumb-placeholder {
+      color: rgba(238,232,220,.3); font-size: .75rem;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+
+    .port-card-overlay {
+      position: absolute; inset: 0;
+      background: rgba(26,24,22,.6);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .2s;
+    }
+    .port-card:hover .port-card-overlay { opacity: 1; }
+    .port-view-btn {
+      color: var(--paper);
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .24em; text-transform: uppercase;
+      border: 1.5px solid rgba(238,232,220,.7);
+      padding: .48rem 1.4rem;
+      pointer-events: none;
+    }
+
+    .port-card-info {
+      padding: .85rem 1rem;
+      display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+      border-top: 2px solid var(--card-accent, var(--ochre));
+    }
+    .port-card-title {
+      font-size: .8rem; color: var(--ink); font-weight: 600;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .port-card-badge {
+      font-size: .57rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      background: var(--paper); color: var(--ink);
+      padding: .18rem .55rem;
+      border: 1.5px solid rgba(26,24,22,.3);
+      border-radius: 0; flex-shrink: 0;
+    }
+    .port-card-badge.pdf { background: var(--straw); border-color: var(--ink); }
+
+    /* ─── Portfolio Modal ────────────────────────────────────── */
+    .port-modal {
+      position: fixed; inset: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .24s;
+    }
+    .port-modal.active { opacity: 1; pointer-events: all; }
+    .port-modal-overlay {
+      position: absolute; inset: 0;
+      background: rgba(26,24,22,.88);
+    }
+    .port-modal-box {
+      position: relative; z-index: 1;
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      box-shadow: 10px 10px 0 var(--ochre);
+      border-radius: 0;
+      width: min(880px, calc(100vw - 2.5rem));
+      max-height: calc(100vh - 3rem);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .port-modal-header {
+      padding: 1.1rem 1.6rem;
+      border-bottom: 2.5px solid var(--ink);
+      background: var(--ink);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      flex-shrink: 0;
+    }
+    .port-modal-title {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--straw);
+    }
+    .port-modal-close {
+      background: none;
+      border: 1.5px solid rgba(238,232,220,.3);
+      cursor: pointer; color: rgba(238,232,220,.7);
+      font-size: 1rem; line-height: 1;
+      transition: border-color .18s, color .18s;
+      display: flex; align-items: center; justify-content: center;
+      width: 2rem; height: 2rem; flex-shrink: 0;
+    }
+    .port-modal-close:hover { border-color: var(--ochre); color: var(--ochre); }
+    .port-modal-body {
+      overflow-y: auto; -webkit-overflow-scrolling: touch;
+      padding: 2rem; flex: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+    }
+    .modal-full-img { max-width: 100%; display: block; }
+    .modal-pdf-page {
+      width: 100%;
+      display: flex; flex-direction: column; align-items: center; gap: .6rem;
+    }
+    .modal-pdf-page canvas { max-width: 100%; display: block; border: 1.5px solid #ddd; }
+    .modal-page-label {
+      font-size: .64rem; color: var(--light);
+      letter-spacing: .16em; text-transform: uppercase; font-weight: 600;
+    }
+    .modal-loading { color: var(--mid); font-size: .95rem; padding: 3rem; text-align: center; }
+
+    /* ─── Skills ─────────────────────────────────────────────── */
+    #skills {
+      background: var(--bg-skills);
+      position: relative;
+    }
+    #skills::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(238,232,220,.07) 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+      pointer-events: none;
+    }
+    #skills .container { position: relative; z-index: 1; }
+    #skills .section-header h2 { color: var(--paper); }
+    #skills .section-header h2 em { color: var(--straw); }
+    #skills .eyebrow { background: var(--straw); color: var(--ink); border-color: var(--ink); }
+    #skills .divider { background: var(--straw); }
 
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.2rem;
+      gap: 1rem;
     }
     .skill-pill {
-      background: white;
-      border: 1.5px solid rgba(212,116,138,.15);
-      border-radius: 14px;
-      padding: 1.2rem 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: .85rem;
-      transition: transform .2s, border-color .2s, box-shadow .2s;
+      background: rgba(238,232,220,.92);
+      border: 1.5px solid rgba(26,24,22,.3);
+      box-shadow: 3px 3px 0 rgba(26,24,22,.35);
+      border-radius: 0;
+      padding: 1.1rem 1.3rem;
+      display: flex; align-items: center; gap: .85rem;
+      transition: transform .13s, box-shadow .13s, background .13s;
       cursor: default;
     }
     .skill-pill:hover {
-      transform: translateY(-2px);
-      border-color: var(--blush);
-      box-shadow: 0 6px 20px rgba(212,116,138,.15);
+      transform: translate(-2px,-2px);
+      box-shadow: 5px 5px 0 rgba(26,24,22,.35);
+      background: var(--straw);
     }
-    .skill-icon {
-      font-size: 1.35rem;
-      flex-shrink: 0;
-    }
-    .skill-label {
-      font-size: .84rem;
-      font-weight: 400;
-      color: var(--deep);
-      line-height: 1.3;
-    }
+    .skill-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .skill-label { font-size: .83rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
 
-    /* ─── Personality / Just-so-you-know ────────────────────── */
-    #personality { background: var(--deep); }
-    #personality .section-header h2 { color: white; }
-    #personality .eyebrow { color: var(--blush); }
-    #personality .divider { background: var(--blush); }
+    /* ─── Personality ─────────────────────────────────────────── */
+    #personality {
+      background: var(--bg-quirk);
+      position: relative;
+    }
+    #personality::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(238,232,220,.08) 1.5px, transparent 1.5px);
+      background-size: 15px 15px;
+      pointer-events: none;
+    }
+    #personality .container { position: relative; z-index: 1; }
+    #personality .section-header h2 { color: var(--paper) !important; }
+    #personality .section-header h2 em {
+      color: var(--straw);
+      font-family: 'DM Serif Display', serif;
+    }
+    #personality .eyebrow { background: var(--straw); color: var(--ink); border-color: var(--straw); }
+    #personality .divider { background: var(--straw); }
 
     .personality-intro {
-      color: rgba(255,255,255,.65);
+      color: rgba(238,232,220,.75);
       font-size: .97rem;
       max-width: 600px;
       margin-bottom: 3rem;
@@ -438,100 +664,90 @@
       gap: 1rem;
     }
     .quirk-card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 14px;
+      background: rgba(238,232,220,.1);
+      border: 1.5px solid rgba(238,232,220,.35);
+      border-radius: 0;
       padding: 1.2rem 1.4rem;
-      display: flex;
-      align-items: flex-start;
-      gap: .7rem;
-      transition: background .2s, border-color .2s;
+      display: flex; align-items: flex-start; gap: .7rem;
+      transition: background .18s, border-color .18s, transform .13s;
     }
     .quirk-card:hover {
-      background: rgba(212,116,138,.12);
-      border-color: rgba(212,116,138,.3);
+      background: rgba(238,232,220,.18);
+      border-color: rgba(238,232,220,.6);
+      transform: translate(-2px,-2px);
     }
     .quirk-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--blush);
-      margin-top: .58rem;
-      flex-shrink: 0;
+      width: 7px; height: 7px;
+      background: var(--straw);
+      transform: rotate(45deg);
+      margin-top: .58rem; flex-shrink: 0;
     }
-    .quirk-text {
-      font-size: .85rem;
-      color: rgba(255,255,255,.75);
-      line-height: 1.5;
-    }
+    .quirk-text { font-size: .85rem; color: rgba(238,232,220,.88); line-height: 1.55; }
 
     /* ─── Contact ────────────────────────────────────────────── */
     #contact {
-      background: var(--cream);
+      background: var(--paper);
       text-align: center;
+      position: relative;
     }
+    #contact::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(26,24,22,.04) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none;
+    }
+    #contact .container { position: relative; z-index: 1; }
     #contact .section-header { margin-bottom: 2rem; }
-    #contact .section-header h2 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-    }
+    #contact .section-header h2 { font-size: clamp(3rem, 7vw, 5.5rem); }
+    #contact .divider { margin: 1rem auto; }
     .contact-sub {
-      color: var(--mid);
-      font-size: .97rem;
-      max-width: 480px;
-      margin: 0 auto 3rem;
+      color: var(--mid); font-size: .97rem;
+      max-width: 480px; margin: 0 auto 3rem;
     }
     .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      margin-bottom: 5rem;
+      display: flex; justify-content: center;
+      gap: 1.2rem; flex-wrap: wrap; margin-bottom: 5rem;
     }
     .contact-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      background: white;
-      border: 1.5px solid rgba(212,116,138,.2);
-      border-radius: 99px;
-      padding: .75rem 1.6rem;
-      font-size: .88rem;
-      color: var(--deep);
-      transition: border-color .2s, box-shadow .2s, transform .2s;
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--white);
+      border: 2px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      border-radius: 0;
+      padding: .78rem 1.7rem;
+      font-size: .86rem; font-weight: 600; color: var(--ink);
+      transition: transform .13s, box-shadow .13s, background .13s;
     }
     .contact-chip:hover {
-      border-color: var(--blush);
-      box-shadow: 0 4px 18px rgba(212,116,138,.18);
-      transform: translateY(-2px);
+      transform: translate(-2px,-2px);
+      box-shadow: 6px 6px 0 var(--ink);
+      background: var(--straw);
     }
     .contact-chip .icon { font-size: 1rem; }
 
     /* ─── Footer ─────────────────────────────────────────────── */
     footer {
-      background: var(--deep);
-      color: rgba(255,255,255,.4);
+      background: var(--ink);
+      color: rgba(238,232,220,.4);
       text-align: center;
       padding: 2rem;
       font-size: .75rem;
       letter-spacing: .08em;
+      border-top: 3px solid var(--ochre);
     }
-    footer span { color: var(--blush); }
+    footer span { color: var(--ochre); }
     .footnote {
-      margin-top: .6rem;
-      font-size: .7rem;
-      font-style: italic;
-      color: rgba(255,255,255,.25);
+      margin-top: .6rem; font-size: .7rem;
+      font-style: italic; color: rgba(238,232,220,.22);
     }
 
     /* ─── Scroll-reveal ──────────────────────────────────────── */
     .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .7s ease, transform .7s ease;
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: .1s; }
     .reveal-delay-2 { transition-delay: .2s; }
     .reveal-delay-3 { transition-delay: .3s; }
@@ -547,20 +763,22 @@
       .jen-photo { width: 170px; height: 170px; }
 
       .chapter {
-        grid-template-columns: 1fr;
-        gap: .8rem;
-        padding: 1.8rem 1.6rem;
+        grid-template-columns: 1fr; gap: .8rem; padding: 1.8rem 1.6rem;
       }
       .chapter-num { font-size: 2.4rem; }
+      .chapter:nth-child(odd), .chapter:nth-child(even) { transform: none; }
 
       section { padding: 4rem 1.4rem; }
-
       .contact-links { flex-direction: column; align-items: center; }
-    }
 
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .port-thumb { height: 190px; }
+      .port-modal-box { width: calc(100vw - 1.5rem); box-shadow: 6px 6px 0 var(--ochre); }
+    }
     @media (max-width: 480px) {
       .nav-links { display: none; }
       .stat-cluster { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -573,6 +791,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Say Hello</a></li>
     </ul>
@@ -582,16 +801,16 @@
   <section id="hero">
     <span class="hero-tag">Available · Cincinnati & Beyond</span>
 
-    <h1 class="hero-name serif">
-      Jen <em>Kendall</em>
+    <h1 class="hero-name">
+      <span class="name-serif">Jen</span>
+      <span class="name-display">Kendall</span>
     </h1>
 
-    <p class="hero-script">communicator. creator. connector.</p>
+    <p class="hero-subtitle">communicator · creator · connector</p>
 
     <p class="hero-tagline">
-      Part performer, part educator, part designer —
-      and fully the kind of person who will make you feel
-      like the most important one in the room. That's just how I'm wired.
+      Part performer, part educator, part designer — and someone who genuinely
+      enjoys making people feel comfortable and seen. That's pretty much how I'm wired.
     </p>
 
     <div class="hero-cta">
@@ -607,22 +826,23 @@
 
         <div class="about-text reveal">
           <p class="eyebrow">Who I Am</p>
-          <h2 class="serif" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15; margin: .5rem 0 .8rem;">
-            Warm, wired for people, <em class="serif" style="color:var(--blush)">and a little extra.</em>
+          <h2 class="display" style="font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; margin: .6rem 0 .9rem;">
+            Warm, people-oriented, <em>and probably a little extra.</em>
           </h2>
           <div class="divider"></div>
           <p>
-            I'm a <strong>fantastic communicator</strong> (I don't say that lightly — it's genuinely my superpower),
-            a seasoned performer, a kids' ministry veteran, and a graphic designer who wandered into
-            the craft and never looked back.
+            I'm a <strong>communicator</strong>, performer, kids' ministry veteran, and
+            graphic designer who found her way into creative work and stuck with it.
           </p>
           <p>
             I've been on stages around the world, in classrooms full of five-year-olds,
-            and hunched over a design file at midnight. All three feel like home.
+            and hunched over a design file late at night. All three feel familiar to me
+            in different ways.
           </p>
           <p>
-            No college degree — <strong>no debt, some regret</strong>, and an education
-            made entirely from doing the thing. Turns out that works pretty well.
+            I don't have a college degree — just <strong>a lot of years spent learning by doing</strong>,
+            asking questions, and figuring things out as I go. That kind of education has
+            served me pretty well.
           </p>
           <div class="type-badges">
             <div class="type-badge">
@@ -645,24 +865,24 @@
             <img src="jen face.png" alt="Jen Kendall" class="jen-photo" />
           </div>
           <div class="stat-cluster">
-          <div class="stat-card">
-            <div class="num">15</div>
-            <div class="desc">Years of stage experience across the globe</div>
+            <div class="stat-card">
+              <div class="num">15</div>
+              <div class="desc">Years of stage experience across the globe</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">5+</div>
+              <div class="desc">Years as a graphic designer</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">∞</div>
+              <div class="desc">Fists bumped. Diapers changed. Kids who felt safe.</div>
+            </div>
+            <div class="stat-card">
+              <div class="num serif" style="font-size:2rem;">100%</div>
+              <div class="desc">Chance I know the meme you're talking about.</div>
+            </div>
           </div>
-          <div class="stat-card">
-            <div class="num">5+</div>
-            <div class="desc">Years as a graphic designer</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">∞</div>
-            <div class="desc">Juice boxes opened. Diapers changed. Kids who felt safe.</div>
-          </div>
-          <div class="stat-card">
-            <div class="num serif" style="font-size:2rem; padding-top:.3rem;">100%</div>
-            <div class="desc">Chance I already know your name</div>
-          </div>
-        </div><!-- /.stat-cluster -->
-        </div><!-- /.about-right -->
+        </div>
 
       </div>
     </div>
@@ -673,7 +893,7 @@
     <div class="container">
       <div class="section-header reveal">
         <p class="eyebrow">The Journey</p>
-        <h2 class="serif">Three chapters<br><em class="serif">and counting.</em></h2>
+        <h2 class="serif">Three chapters<br><em>and counting.</em></h2>
         <div class="divider"></div>
       </div>
 
@@ -681,18 +901,18 @@
 
         <!-- Chapter 1 -->
         <div class="chapter reveal reveal-delay-1">
-          <div class="chapter-num script">one</div>
+          <div class="chapter-num">one</div>
           <div>
             <p class="chapter-era">15 Years · Worldwide</p>
             <h3>The Stage</h3>
             <p>
-              From local productions to international stages, I've spent fifteen years
-              performing in front of audiences of every size and temperament. I know how to
-              read a room, hold attention, and land a moment. I also know how to recover
-              gracefully when everything goes sideways — because it always does, eventually.
+              I've spent fifteen years performing in front of audiences of all sizes,
+              from local productions to international stages. Over time, I've learned how to
+              read a room, hold attention, and recover when things don't go according to
+              plan — because eventually, something always doesn't.
               <br><br>
-              Fifteen years of stage work is a masterclass in communication, presence,
-              and the rare ability to make a crowd of strangers feel like family.
+              Stage work taught me a lot about communication, presence, adaptability, and
+              how to help people feel connected in a room full of strangers.
             </p>
             <div class="chapter-tags">
               <span class="tag">Performance</span>
@@ -705,17 +925,17 @@
 
         <!-- Chapter 2 -->
         <div class="chapter reveal reveal-delay-2">
-          <div class="chapter-num script">two</div>
+          <div class="chapter-num">two</div>
           <div>
             <p class="chapter-era">3+ Years · Cincinnati, OH</p>
             <h3>The Classroom</h3>
             <p>
-              Director of Kids Club East Side. I've built an entire career out of one simple skill: making kids
-              feel completely, absolutely, unshakeably comfortable.
+              Director of Kids Club East Side. A lot of my work has centered around helping
+              kids feel safe, comfortable, and known.
               <br><br>
-              It's harder than it sounds. Kids are professional lie detectors. They know
-              immediately whether you're the real deal. I've passed that test a few thousand
-              times. Also: expert-level juice box opener. It's on my résumé.
+              Kids tend to know pretty quickly whether someone is genuine or not, and earning
+              their trust takes consistency, patience, and a sense of humor. Also: a surprising
+              amount of goldfish.
             </p>
             <div class="chapter-tags">
               <span class="tag sage">Team Leadership</span>
@@ -728,28 +948,26 @@
 
         <!-- Chapter 3 – Graphic Design -->
         <div class="chapter reveal reveal-delay-3">
-          <div class="chapter-num script">three</div>
+          <div class="chapter-num">three</div>
           <div>
             <p class="chapter-era">5+ Years · Florida (Remote)</p>
             <h3>The Studio</h3>
             <p>
-              Turns out the calligraphy was always a clue. I design and develop brand
-              identity implemented across a national corporation — and I don't just make
-              the thing look good. I sell leadership on <em>why it matters</em>, making
-              the case for consistent messaging and a visual identity strong enough to stand
-              out among competitors. That's a different skill set entirely, and I have it.
+              In hindsight, the calligraphy obsession was probably an early sign.
               <br><br>
-              I've generated real buzz with innovative booth designs at national conferences,
-              and equipped sales teams with creative collateral that actually lands. My
-              particular superpower? Taking a half-baked idea and turning it into something
-              polished, clear, and built for every kind of audience. I develop teaching
-              materials and slide decks that hold attention, generate conversation, and leave
-              people with a clear next step.
+              I design and develop brand identity work used across a national organization.
+              A large part of my role is not just creating visual assets, but helping leadership
+              understand <em>why consistency, clarity, and strong design matter</em> in the first place.
               <br><br>
-              Half the job, honestly, is helping people figure out what they're actually
-              asking for in the first place. The other half is making the bland
-              beautiful — in Adobe Illustrator, InDesign, and Photoshop — and delivering
-              work that any organization would be proud to put its name on.
+              I've worked on conference booth designs, sales collateral, teaching materials,
+              and slide decks intended to keep people engaged and communicate ideas clearly.
+              A lot of my work involves taking loosely formed ideas and helping shape them into
+              something more polished and usable.
+              <br><br>
+              Honestly, a significant part of design work is helping people figure out what
+              they're actually asking for. The rest is creating work that communicates well,
+              looks intentional, and serves the audience it's built for — usually somewhere
+              inside Adobe Illustrator, InDesign, and Photoshop.
             </p>
             <div class="chapter-tags">
               <span class="tag gold">Brand Identity</span>
@@ -768,12 +986,39 @@
     </div>
   </section>
 
+  <!-- ─── Portfolio ───────────────────────────────────────────── -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">The Work</p>
+        <h2 class="serif">Design <em>Portfolio</em></h2>
+        <div class="divider"></div>
+        <p style="font-size:.97rem;max-width:540px;margin-top:.8rem;line-height:1.75;">
+          A selection of brand identity, print, and digital work — built in Adobe Illustrator, InDesign, and Photoshop.
+        </p>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+  </section>
+
+  <!-- ─── Portfolio Modal ───────────────────────────────────── -->
+  <div class="port-modal" id="portModal" role="dialog" aria-modal="true" aria-labelledby="portModalTitle">
+    <div class="port-modal-overlay"></div>
+    <div class="port-modal-box">
+      <div class="port-modal-header">
+        <h3 class="port-modal-title" id="portModalTitle"></h3>
+        <button class="port-modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="port-modal-body"></div>
+    </div>
+  </div>
+
   <!-- ─── Skills ────────────────────────────────────────────── -->
   <section id="skills">
     <div class="container">
       <div class="section-header reveal">
         <p class="eyebrow">What I Bring</p>
-        <h2 class="serif">Skills &amp; <em class="serif">Superpowers</em></h2>
+        <h2 class="serif">Skills &amp; <em>Superpowers</em></h2>
         <div class="divider"></div>
       </div>
 
@@ -787,12 +1032,13 @@
         <div class="skill-pill reveal reveal-delay-2"><span class="skill-icon">🎭</span><span class="skill-label">Stage Performance</span></div>
         <div class="skill-pill reveal reveal-delay-2"><span class="skill-icon">🤝</span><span class="skill-label">Connecting with People</span></div>
         <div class="skill-pill reveal reveal-delay-3"><span class="skill-icon">✍️</span><span class="skill-label">Calligraphy</span></div>
-        <div class="skill-pill reveal reveal-delay-3"><span class="skill-icon">👂</span><span class="skill-label">Deep Listening</span></div>
-        <div class="skill-pill reveal reveal-delay-3"><span class="skill-icon">🎉</span><span class="skill-label">Throwing a Party</span></div>
+        <div class="skill-pill reveal reveal-delay-3"><span class="skill-icon">👂</span><span class="skill-label">Listening</span></div>
+        <div class="skill-pill reveal reveal-delay-3"><span class="skill-icon">🎉</span><span class="skill-label">Event Planning</span></div>
         <div class="skill-pill reveal reveal-delay-3"><span class="skill-icon">🧰</span><span class="skill-label">DIY &amp; Making Things</span></div>
-        <div class="skill-pill reveal reveal-delay-4"><span class="skill-icon">📖</span><span class="skill-label">Bible History Nerd</span></div>
+        <div class="skill-pill reveal reveal-delay-4"><span class="skill-icon">📖</span><span class="skill-label">Bible Podcast Nerd</span></div>
         <div class="skill-pill reveal reveal-delay-4"><span class="skill-icon">🧶</span><span class="skill-label">Baby Blanket Knitter</span></div>
         <div class="skill-pill reveal reveal-delay-4"><span class="skill-icon">🥞</span><span class="skill-label">Saturday Pancake Flipper</span></div>
+        <div class="skill-pill reveal reveal-delay-4"><span class="skill-icon">🐝</span><span class="skill-label">Native Pollinator Enthusiast</span></div>
       </div>
     </div>
   </section>
@@ -802,10 +1048,10 @@
     <div class="container">
       <div class="section-header reveal">
         <p class="eyebrow">Just So You Know</p>
-        <h2 class="serif" style="color:white;">A few things about <em class="serif">Jen.</em></h2>
+        <h2 class="serif">A few things about <em>me.</em></h2>
         <div class="divider"></div>
         <p class="personality-intro">
-          Every résumé looks the same. So here's the part of me that doesn't fit in a bullet point.
+          Most résumés feel pretty interchangeable, so here's some of the stuff that doesn't fit neatly into bullet points.
         </p>
       </div>
 
@@ -816,11 +1062,11 @@
         </div>
         <div class="quirk-card reveal reveal-delay-1">
           <div class="quirk-dot"></div>
-          <span class="quirk-text">High-fiving is a love language. I'm fluent.</span>
+          <span class="quirk-text">I may have forgotten your name, but I know your dog's.</span>
         </div>
         <div class="quirk-card reveal reveal-delay-2">
           <div class="quirk-dot"></div>
-          <span class="quirk-text">I take personality quizzes recreationally and will share the results whether you asked or not.</span>
+          <span class="quirk-text">Diversity, Equity, Inclusion. Yes, Yes, Yes.</span>
         </div>
         <div class="quirk-card reveal reveal-delay-2">
           <div class="quirk-dot"></div>
@@ -851,12 +1097,12 @@
     <div class="container">
       <div class="section-header reveal">
         <p class="eyebrow">Let's Connect</p>
-        <h2 class="serif">I'd love<br><em class="serif">to hear from you.</em></h2>
-        <div class="divider" style="margin: 1.2rem auto;"></div>
+        <h2 class="serif">I'd love<br><em>to hear from you.</em></h2>
+        <div class="divider" style="margin: 1rem auto;"></div>
       </div>
       <p class="contact-sub reveal">
-        Whether you're building a team, planning an event, or just want to see if the vibe is real —
-        reach out. I answer.
+        Whether you're building a team, planning an event, or just want to connect —
+        feel free to reach out.
       </p>
       <div class="contact-links reveal reveal-delay-1">
         <a href="mailto:jennykendall@gmail.com" class="contact-chip">
@@ -878,8 +1124,9 @@
   </footer>
 
   <!-- ─── Scripts ───────────────────────────────────────────── -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
-    // Nav shadow on scroll
+    // Nav border on scroll
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
@@ -896,6 +1143,141 @@
       { threshold: 0.12 }
     );
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ─── Portfolio ──────────────────────────────────────────────
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+
+    const PORTFOLIO_ITEMS = [
+      { type: 'image', src: 'Portfolio/LBF_invite_web.jpg',                       title: 'Les Belles Fleurs — Masquerade Ball' },
+      { type: 'image', src: 'Portfolio/Jonah Kids Club Vinyl Graphic.jpg',        title: 'Jonah Series — Digital Illustration' },
+      { type: 'image', src: 'Portfolio/TMC_5K_family.jpg',                        title: 'TMC Virtual 5K — Social Promo' },
+      { type: 'image', src: 'Portfolio/Retro Runner Shirt.jpg',                   title: 'TMC Virtual 5K — Shirt Design' },
+      { type: 'pdf',   src: 'Portfolio/TogMC_BrandGuide.pdf',                     title: 'TMC Brand Guide' },
+      { type: 'pdf',   src: 'Portfolio/TMC_Engage360_digital 6.pdf',              title: 'Engage360 Digital' },
+      { type: 'pdf',   src: 'Portfolio/PO8738A- TMC.pdf',                         title: 'TMC Print Piece' },
+      { type: 'pdf',   src: 'Portfolio/Success Story Template - Sample (1).pdf',  title: 'Success Story Template' },
+    ];
+
+    (function buildPortfolioGrid() {
+      const grid = document.getElementById('portfolioGrid');
+      if (!grid) return;
+      PORTFOLIO_ITEMS.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = 'port-card reveal';
+
+        const thumbEl = document.createElement('div');
+        thumbEl.className = 'port-thumb';
+
+        if (item.type === 'image') {
+          const img = document.createElement('img');
+          img.src = item.src; img.alt = item.title;
+          img.className = 'port-thumb-img';
+          thumbEl.appendChild(img);
+        } else {
+          const canvas = document.createElement('canvas');
+          canvas.className = 'port-thumb-canvas';
+          thumbEl.appendChild(canvas);
+          renderPdfThumb(item.src, canvas);
+        }
+
+        const overlay = document.createElement('div');
+        overlay.className = 'port-card-overlay';
+        overlay.innerHTML = '<span class="port-view-btn">View</span>';
+        thumbEl.appendChild(overlay);
+
+        const badgeClass = item.type === 'pdf' ? 'pdf' : '';
+        const badgeLabel = item.type === 'pdf' ? 'PDF' : item.src.split('.').pop().toUpperCase();
+        const info = document.createElement('div');
+        info.className = 'port-card-info';
+        info.innerHTML = `<span class="port-card-title">${item.title}</span><span class="port-card-badge ${badgeClass}">${badgeLabel}</span>`;
+
+        card.appendChild(thumbEl);
+        card.appendChild(info);
+        card.addEventListener('click', () => openPortModal(idx));
+        grid.appendChild(card);
+        observer.observe(card);
+      });
+    })();
+
+    async function renderPdfThumb(src, canvas) {
+      if (!window.pdfjsLib) return;
+      try {
+        const pdf = await pdfjsLib.getDocument(src).promise;
+        const page = await pdf.getPage(1);
+        const vp = page.getViewport({ scale: 1 });
+        const scale = 260 / vp.height;
+        const scaled = page.getViewport({ scale });
+        canvas.width = scaled.width; canvas.height = scaled.height;
+        await page.render({ canvasContext: canvas.getContext('2d'), viewport: scaled }).promise;
+      } catch (e) {
+        const ctx = canvas.getContext('2d');
+        canvas.width = 200; canvas.height = 260;
+        ctx.fillStyle = '#1e1c1a';
+        ctx.fillRect(0, 0, 200, 260);
+        ctx.fillStyle = '#DBBF6A';
+        ctx.font = '700 13px Space Grotesk, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('PDF', 100, 136);
+      }
+    }
+
+    async function openPortModal(idx) {
+      const item = PORTFOLIO_ITEMS[idx];
+      const modal = document.getElementById('portModal');
+      modal.querySelector('#portModalTitle').textContent = item.title;
+      const body = modal.querySelector('.port-modal-body');
+      body.innerHTML = '';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      if (item.type === 'image') {
+        const img = document.createElement('img');
+        img.src = item.src; img.className = 'modal-full-img'; img.alt = item.title;
+        body.appendChild(img);
+      } else {
+        const loading = document.createElement('p');
+        loading.className = 'modal-loading';
+        loading.textContent = 'Loading PDF…';
+        body.appendChild(loading);
+        try {
+          const pdf = await pdfjsLib.getDocument(item.src).promise;
+          loading.remove();
+          const boxW = modal.querySelector('.port-modal-box').offsetWidth;
+          const targetW = Math.min(boxW - 64, 800);
+          for (let p = 1; p <= pdf.numPages; p++) {
+            const page = await pdf.getPage(p);
+            const vp = page.getViewport({ scale: 1 });
+            const scaled = page.getViewport({ scale: targetW / vp.width });
+            const canvas = document.createElement('canvas');
+            canvas.width = scaled.width; canvas.height = scaled.height;
+            await page.render({ canvasContext: canvas.getContext('2d'), viewport: scaled }).promise;
+            const lbl = document.createElement('p');
+            lbl.className = 'modal-page-label';
+            lbl.textContent = `Page ${p} of ${pdf.numPages}`;
+            const wrap = document.createElement('div');
+            wrap.className = 'modal-pdf-page';
+            wrap.appendChild(canvas); wrap.appendChild(lbl);
+            body.appendChild(wrap);
+          }
+        } catch (e) {
+          loading.textContent = 'Unable to load this PDF. Try downloading it directly.';
+        }
+      }
+    }
+
+    function closePortModal() {
+      const modal = document.getElementById('portModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => { modal.querySelector('.port-modal-body').innerHTML = ''; }, 260);
+    }
+
+    document.getElementById('portModal').querySelector('.port-modal-overlay').addEventListener('click', closePortModal);
+    document.getElementById('portModal').querySelector('.port-modal-close').addEventListener('click', closePortModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePortModal(); });
   </script>
 
 </body>
