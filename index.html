@@ -19,9 +19,9 @@
   <nav id="nav">
     <span class="nav-name serif">Jen Kendall</span>
     <ul class="nav-links">
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Say Hello</a></li>
     </ul>
@@ -49,6 +49,33 @@
     </div>
   </section>
 
+  <!-- ─── Portfolio ───────────────────────────────────────────── -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">The Work</p>
+        <h2 class="serif">Design <em>Portfolio</em></h2>
+        <div class="divider"></div>
+        <p style="font-size:.97rem;max-width:540px;margin-top:.8rem;line-height:1.75;">
+          A selection of brand identity, print, and digital work — built in Adobe Illustrator, InDesign, and Photoshop.
+        </p>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+  </section>
+
+  <!-- ─── Portfolio Modal ───────────────────────────────────── -->
+  <div class="port-modal" id="portModal" role="dialog" aria-modal="true" aria-labelledby="portModalTitle">
+    <div class="port-modal-overlay"></div>
+    <div class="port-modal-box">
+      <div class="port-modal-header">
+        <h3 class="port-modal-title" id="portModalTitle"></h3>
+        <button class="port-modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="port-modal-body"></div>
+    </div>
+  </div>
+
   <!-- ─── About ─────────────────────────────────────────────── -->
   <section id="about">
     <div class="container">
@@ -71,7 +98,7 @@
           </p>
           <p>
             I don't have a college degree — just <strong>a lot of years spent learning by doing</strong>,
-            asking questions, and figuring things out as I go. That kind of education has
+            asking good questions, and figuring things out as I go. That kind of education has
             served me pretty well.
           </p>
           <div class="type-badges">
@@ -161,7 +188,7 @@
             <h3>The Classroom</h3>
             <p>
               Director of Kids Club East Side. A lot of my work has centered around helping
-              kids feel safe, comfortable, and known.
+              kids and adults feel safe, comfortable, and known. Developing volunteers, planning big events, creating memorable content, and connecting with kids fueled my time there. I'm proud of pushing advocacy front and center into many of the things I did and, well, advocated for.
               <br><br>
               Kids tend to know pretty quickly whether someone is genuine or not, and earning
               their trust takes consistency, patience, and a sense of humor. Also: a surprising
@@ -216,33 +243,6 @@
     </div>
   </section>
 
-  <!-- ─── Portfolio ───────────────────────────────────────────── -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="eyebrow">The Work</p>
-        <h2 class="serif">Design <em>Portfolio</em></h2>
-        <div class="divider"></div>
-        <p style="font-size:.97rem;max-width:540px;margin-top:.8rem;line-height:1.75;">
-          A selection of brand identity, print, and digital work — built in Adobe Illustrator, InDesign, and Photoshop.
-        </p>
-      </div>
-      <div class="portfolio-grid" id="portfolioGrid"></div>
-    </div>
-  </section>
-
-  <!-- ─── Portfolio Modal ───────────────────────────────────── -->
-  <div class="port-modal" id="portModal" role="dialog" aria-modal="true" aria-labelledby="portModalTitle">
-    <div class="port-modal-overlay"></div>
-    <div class="port-modal-box">
-      <div class="port-modal-header">
-        <h3 class="port-modal-title" id="portModalTitle"></h3>
-        <button class="port-modal-close" aria-label="Close">✕</button>
-      </div>
-      <div class="port-modal-body"></div>
-    </div>
-  </div>
-
   <!-- ─── Skills ────────────────────────────────────────────── -->
   <section id="skills">
     <div class="container">
@@ -288,7 +288,7 @@
       <div class="quirk-grid">
         <div class="quirk-card reveal reveal-delay-1">
           <div class="quirk-dot"></div>
-          <span class="quirk-text">I will absolutely make friends with you in the grocery store checkout line.</span>
+          <span class="quirk-text">I will absolutely make conversation with you in the grocery store checkout line.</span>
         </div>
         <div class="quirk-card reveal reveal-delay-1">
           <div class="quirk-dot"></div>
@@ -384,11 +384,11 @@
       { type: 'image', src: 'Portfolio/LBF_invite_web.jpg',                       title: 'Les Belles Fleurs — Masquerade Ball' },
       { type: 'image', src: 'Portfolio/Jonah Kids Club Vinyl Graphic.jpg',        title: 'Jonah Series — Digital Illustration' },
       { type: 'image', src: 'Portfolio/TMC_5K_family.jpg',                        title: 'TMC Virtual 5K — Social Promo' },
-      { type: 'image', src: 'Portfolio/Retro Runner Shirt.jpg',                   title: 'TMC Virtual 5K — Shirt Design' },
+      { type: 'pdf',   src: 'Portfolio/TMC Retro Shirt.pdf',                       title: 'TMC Virtual 5K — Shirt Design' },
       { type: 'pdf',   src: 'Portfolio/TogMC_BrandGuide.pdf',                     title: 'TMC Brand Guide' },
       { type: 'pdf',   src: 'Portfolio/TMC_Engage360_digital 6.pdf',              title: 'Engage360 Digital' },
       { type: 'pdf',   src: 'Portfolio/PO8738A- TMC.pdf',                         title: 'TMC Conference Booth Design' },
-      { type: 'pdf',   src: 'Portfolio/Success Story Template - Sample (1).pdf',  title: 'Success Story Template' },
+      { type: 'pdf',   src: 'Portfolio/Yay Mail.pdf',                             title: 'Yay Mail' },
     ];
 
     (function buildPortfolioGrid() {
