@@ -384,10 +384,10 @@
       { type: 'image', src: 'Portfolio/LBF_invite_web.jpg',                       title: 'Les Belles Fleurs — Masquerade Ball' },
       { type: 'image', src: 'Portfolio/Jonah Kids Club Vinyl Graphic.jpg',        title: 'Jonah Series — Digital Illustration' },
       { type: 'image', src: 'Portfolio/TMC_5K_family.jpg',                        title: 'TMC Virtual 5K — Social Promo' },
-      { type: 'pdf',   src: 'Portfolio/TMC Retro Shirt.pdf',                       title: 'TMC Virtual 5K — Shirt Design' },
+      { type: 'pdf',   src: 'Portfolio/TMC Retro Shirt.pdf',                       title: 'TMC Virtual 5K — Shirt Design', cover: true },
       { type: 'pdf',   src: 'Portfolio/TogMC_BrandGuide.pdf',                     title: 'TMC Brand Guide' },
       { type: 'pdf',   src: 'Portfolio/TMC_Engage360_digital 6.pdf',              title: 'Engage360 Digital' },
-      { type: 'pdf',   src: 'Portfolio/PO8738A- TMC.pdf',                         title: 'TMC Conference Booth Design' },
+      { type: 'pdf',   src: 'Portfolio/PO8738A- TMC.pdf',                         title: 'TMC Conference Booth Design', cover: true },
       { type: 'pdf',   src: 'Portfolio/Yay Mail.pdf',                             title: 'Yay Mail' },
     ];
 
@@ -408,7 +408,7 @@
           thumbEl.appendChild(img);
         } else {
           const canvas = document.createElement('canvas');
-          canvas.className = 'port-thumb-canvas';
+          canvas.className = 'port-thumb-canvas' + (item.cover ? ' cover' : '');
           thumbEl.appendChild(canvas);
           renderPdfThumb(item.src, canvas);
         }
